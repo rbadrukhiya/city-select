@@ -1,23 +1,59 @@
 import logo from './logo.svg';
 import './App.css';
+import { Country, State, City }  from 'country-state-city';
+import {useEffect, useState} from 'react'
 
 function App() {
+  // console.log(State.getAllStates())
+  // console.log(City.getAllCities());
+  let CountryData = Country.getAllCountries()
+  let CityData = City.getAllCities();
+  let StateData = State.getAllStates();
+  const [country , setcountry] = useState(CountryData)
+const [city , setcity] = useState(CityData)
+const [state , setstate] = useState(StateData)
+
+
+const test = () =>{
+    
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <select onChange={test}>
+      {
+        country.map((i)=>{
+          return(
+            <>
+            <option>{i.name}</option>
+            </>
+          )
+        })
+      }
+        </select> */}
+        {/* <select onChange={test}> */}
+      {/* {
+        city.map((i)=>{
+          return(
+            <>
+            <option>{i.name}</option>
+            </>
+          )
+        })
+      }
+        </select> */}
+        <select onChange={test}>
+      {
+        state.map((i)=>{
+          return(
+            <>
+            <option>{i.name}</option>
+            </>
+          )
+        })
+      }
+        </select>
     </div>
   );
 }
